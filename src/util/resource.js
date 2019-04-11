@@ -30,6 +30,7 @@ export default class Resource {
 
     // Add to the loader...
     batch.loader.add('assets/' + this.sheet)
+    console.log(this.sheet + ' added in the Batch loader.')
     // ...and prevent duplicates. 
     batch.sheets.push(this.sheet)
   }

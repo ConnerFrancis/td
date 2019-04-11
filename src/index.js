@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js'
-import Menu from '@/menu'
+import StageLoader from '@/stage/loader'
+import TestStage1 from '@/tours/test/test1'
 
 export const app = new PIXI.Application({
   width: 1024,
@@ -19,8 +20,8 @@ const setup = () => {
   // 4/9/19: On this day I discovered that if you are using Standard and your linter is broken,
   //         ALWAYS check for semicolon discrepencies such as placing them before an anonymous array :)
   ;['log', 'debug', 'warn', 'error', 'info'].forEach((verb) => {
-    window.console[verb] = (function(method, verb, log) {
-      return function() {
+    window.console[verb] = (function (method, verb, log) {
+      return function () {
         /* 1: Apply old console method.
          * 2: Create a new node to display the info.
          * 3: Make sure the class of the type is applied.
@@ -59,7 +60,7 @@ const setup = () => {
   frame.appendChild(app.view)
   app.view.id = 'c'
   // Load the menu
-  app.stage.addChild(new Menu())
+  testStage = new StageLoader(TestStage1)
 }
 
 /** Maximize safety by waiting on the document. */

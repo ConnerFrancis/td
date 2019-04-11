@@ -7,6 +7,6 @@ import { Container } from '@/aliases'
 // TODO: Ensure the UI is on top of different children added later at all times.
 export default class UI extends Container {
   constructor () {
-    
+    super()
   }
 }

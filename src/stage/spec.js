@@ -1,5 +1,7 @@
+/* eslint-disable */
+
 /** Waves spec. */
-[
+;[
   {
     // Maybe meta stuff here?? Time limits??
     // Enemies per wave are listed here:
