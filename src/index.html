@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <!-- <meta> -->
+  <head>
+    <meta charset="utf-8">
+    <title>vid game</title>
+    <!-- CSS reset -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      head, body, html {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100vw;
+        min-height: 100vh;
+      }
+      body {
+        /* Display */
+        display: flex;
+        justify-content: center;
+        /* Size */
+        padding-top: 16px;
+        /* Colors */
+        background-color: #000a12;
+      }
+      #log {
+        /* Display */
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        right: 0;
+        bottom: 0;
+        /* Font */
+        font-size: 10px;
+        /* Colors */
+        background: rgba(0,0,0,0.3);
+        text-shadow: 2px 2px #000;
+        opacity: 0.25;
+        /* Size */
+        padding: 2px;
+        max-height: 20vh;
+        width: 40vw;
+        /* Misc */
+        transition: opacity 0.1s ease;
+      }
+      #log:hover {
+        opacity: 1;
+      }
+      #log span {
+        padding: 2px;
+      }
+      #log span code:first-child {
+        opacity: 0.5;
+      }
+      #log .log {
+        color: #ededed;
+      }
+      #log .info {
+        color: #03a9f4;
+      }
+      #log .warn {
+        color: #ffb300;
+      }
+      #log .error {
+        color: #e53935;
+      }
+      #log .debug {
+        color: #4caf50;
+      }
+      #c {
+        border: 1px solid #78909c;
+        box-shadow: 0 16px 32px rgb(0,0,0,0.85);
+      }
+    </style>
+  </head>
+  <!-- </meta> -->
+  <!-- <content> -->
+  <body>
+    <div id="frame"></div>
+    <div id="log"></div>
+  </body>
+  <!-- </content> -->
+</html>

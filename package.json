@@ -1,0 +1,41 @@
+{
+  "name": "td",
+  "version": "1.0.0",
+  "description": "vid game",
+  "private": true,
+  "dependencies": {
+    "pixi.js": "^4.8.7",
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "html-webpack-plugin": "^3.2.0",
+    "normalize.css": "^8.0.1",
+    "pixi.js": "^4.8.7",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "dev": "npm run watch && npm run dev-server",
+    "dev-c9": "npm run watch && npm run dev-server-c9",
+    "dev-server": "webpack-dev-server --progress --colors",
+    "dev-server-c9": "webpack-dev-server --watch --hot --progress --colors --host $IP --port $PORT",
+    "build": "webpack -p"
+  },
+  "keywords": [
+    "game",
+    "bad"
+  ],
+  "author": "cobbler",
+  "license": "ISC"
+}
