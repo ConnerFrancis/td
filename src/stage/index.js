@@ -2,36 +2,32 @@ import { Container } from '@/aliases'
 import Batch from '@/util/batch'
 
 /**
- * @Template
- * Stage template with waves, behavior, etc.
+ * TODO
+ *
+ * - Hooks for in between waves, the end, etc.
+ * - Support for backgrounds, decor, etc.
+ * - Support for correctly z-ordering sprites and perhaps reordering them later?
+ * - Support for $interactables, or interactable decor items?
  */
-// TODO:
-// - Add hooks for between waves and things...
-//   ... waves format could use hooks in the waves themselves.
-// - Add support for backgrounds, decor, etc. This needs a format similar to waves.
-// - Add support for re-ordering the z-index of children with swapChildren()
-// - Add support for interactable decor as $interactables
+
+/**
+ * @Template
+ * Stage template with waves, behavior, hooks, etc.
+ */
 export default class Stage extends Container {
-  /** @option {Array} spriteClasses - Array of valid Sprite classes that are used in the waves. */
-  $spriteClasses = []
-  /** @option {Object} waves - Valid Waves object that follows @/stage/spec.js */
-  $waves = null
-  /** @option {Object} decor - Valid Decor object that follows @/stage/decor.js */
-  $decor = null
-  /** @option {Resource} background - Resource to be used as a background to the stage.  */
-  $background = null
+  /**
+   * @option {Class[]}  spriteClasses - Array of Sprite classes used at any point in the stage.
+   * @option {Object}   waves         - Object that follows the waves spec in @/stage/spec.js
+   * @option {Object}   decor         - Object that follows the decor spec in @/stage/spec.js
+   * @option {Resource} background    - Sprite image to be used as the background.
+   */
+  static $spriteClasses = []
+  static $waves = null
+  static $decor = null
+  static $background = null
 
-  batch
-  wavesLoaded = []
-
-  /** Prepares things to be used when calling load(). */
   constructor () {
     super()
-    console.log('Stage created.')
+    console.log('Stage ' + this.constructor.name + ' running...')
   }
-
-  /** Load assets, setup entities, etc. */
-  // TODO:
-  // - Load things in z-order
-  // - Make sure dynamic class instance creation works
 }

@@ -7,14 +7,16 @@ export default class Resource {
   animated
 
   /**
-   * @param {String}  sheet    - JSON sprite sheet.
-   * @param {String}  image    - Image in the sprite sheet.
-   * @param {Boolean} animated - Is the resource animated?
+   * @param {String}  sheet           - JSON sprite sheet.
+   * @param {String}  image           - Image in the sprite sheet.
+   * @param {Boolean} extra.animated  - Is the resource animated?
+   * @param {Boolean} extra.fromImage - Is the resource from an image rather than a sprite sheet?
    */
-  constructor (sheet, image, animated = false) {
+  constructor (sheet, image, extra = { animated: false, fromImage: false }) {
     this.sheet = sheet + '.json'
     this.image = image + '.png'
-    this.animated = animated
+    this.animated = extra.animated
+    this.fromImage = extra.fromImage
   }
 
   /**
@@ -30,7 +32,7 @@ export default class Resource {
 
     // Add to the loader...
     batch.loader.add('assets/' + this.sheet)
-    console.log(this.sheet + ' added in the Batch loader.')
+    console.log('- ' + this.sheet + ' added to the loader.')
     // ...and prevent duplicates. 
     batch.sheets.push(this.sheet)
   }

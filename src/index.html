@@ -59,17 +59,36 @@
       #log .log {
         color: #ededed;
       }
+      #log .log code::selection {
+        background: #ededed;
+      }
       #log .info {
         color: #03a9f4;
+      }
+      #log .info code::selection {
+        background: #03a9f4;
       }
       #log .warn {
         color: #ffb300;
       }
+      #log .warn code::selection {
+        background: #ffb300;
+      }
       #log .error {
         color: #e53935;
       }
+      #log .error code::selection {
+        background: #e53935;
+      }
       #log .debug {
         color: #4caf50;
+      }
+      #log .debug code::selection {
+        background: #4caf50;
+      }
+      #log span code::selection {
+        color: black;
+        text-shadow: none;
       }
       #c {
         border: 1px solid #78909c;

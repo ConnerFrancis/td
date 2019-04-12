@@ -54,22 +54,26 @@ const setup = () => {
       }
     })(window.console[verb], verb, log)
   })
-  window.console.debug('Console loaded.')
+  window.console.debug('Console loaded:')
 
   // Load the app
   frame.appendChild(app.view)
   app.view.id = 'c'
   // Load the menu
-  testStage = new StageLoader(TestStage1)
+  const testStage = new StageLoader(TestStage1)
 }
 
 /** Maximize safety by waiting on the document. */
 if (document.readyState !== 'loading') {
   setup()
-  console.info('DOMContentLoaded listener not necessary.')
+  console.debug('DOMContentLoaded listener not necessary.')
 } else {
   document.addEventListener('DOMContentLoaded', () => {
     setup()
-    console.info('DOMContentLoaded listener used.')
+    console.debug('DOMContentLoaded listener used.')
   })
+}
+
+window.onerror = (e, url, line) => {
+  console.error(`${url}:${line} - ${e}`)
 }
