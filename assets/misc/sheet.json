@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"image": "sheet.png",
+		"size": {"w":8,"h":8},
+		"scale": "1"
+	},
+	"frames": {
+		"missing.png":
+		{
+			"frame": {"x":0,"y":0,"w":8,"h":8},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":8,"h":8},
+			"sourceSize": {"w":8,"h":8}
+		}
+	}
+}

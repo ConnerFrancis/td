@@ -11,6 +11,7 @@ export default class SpriteStatic extends PIXI.Sprite {
 
   constructor () {
     // Automagically get the correct asset.
-    super(resources['assets/' + this.$resource.sheet].textures[this.$resource.image])
+    super(resources['assets/' + SpriteStatic.$resource.sheet].textures[SpriteStatic.$resource.image])
+    console.info('Sprite created with Resource ' + SpriteStatic.$resource.sheet + '/' + SpriteStatic.$resource.image)
   }
 }

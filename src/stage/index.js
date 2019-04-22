@@ -29,5 +29,11 @@ export default class Stage extends Container {
   constructor () {
     super()
     console.log('Stage ' + this.constructor.name + ' running...')
+    this.$hook_init()
+  }
+
+  $hook_init () {
+    console.warn(this.constructor.name + ' does not have hook_init() defined.')
+    return null
   }
 }

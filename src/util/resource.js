@@ -13,7 +13,7 @@ export default class Resource {
    * @param {Boolean} extra.fromImage - Is the resource from an image rather than a sprite sheet?
    */
   constructor (sheet, image, extra = { animated: false, fromImage: false }) {
-    this.sheet = sheet + '.json'
+    this.sheet = sheet + '/sheet.json'
     this.image = image + '.png'
     this.animated = extra.animated
     this.fromImage = extra.fromImage

@@ -22,8 +22,7 @@
 ]
 
 /** Decor spec. */
-;
-[
+;[
   // [X, Y, Sprite]
   [5, 10, SpriteTree]
 ]
