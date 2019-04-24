@@ -2,18 +2,27 @@ import * as PIXI from 'pixi.js'
 import StageLoader from '@/stage/loader'
 import TestStage1 from '@/tours/test/test1'
 
+const frame = document.getElementById('frame')
+
+// The actual height and width of the game scene.
+const logicalSize = [256, 144] // w:h
+let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+let d = Math.floor(viewportHeight * 0.85 / 9)
+
+// The resolution needs to be set accordingly if we want the pixels to not be blurry.
 export const app = new PIXI.Application({
-  width: 1024,
-  height: 576,
-  antialiasing: true,
+  width: logicalSize[0],
+  height: logicalSize[1],
   transparent: false,
-  resolution: 1
+  autoDensity: true,
+  resolution: d * 16 / logicalSize[0],
+  backgroundColor: 0x17111a
 })
 
-const setup = () => {
-  // Setup the app
-  let frame = document.getElementById('frame')
+// Ensure correct scaling
+PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST
 
+const setup = () => {
   /** Custom logger that basically just mirrors the developer console of the browser. */
   const log = document.getElementById('log')
   var count = 0
@@ -34,15 +43,15 @@ const setup = () => {
         /* [1] */
         method.apply(window.console, arguments)
         /* [2] */
-        let node = document.createElement('span')
+        let node = document.createElement('div')
         /* [3] */
         node.classList.add(verb)
         /* [4] */
-        let nodeLabel = document.createElement('code')
+        let nodeLabel = document.createElement('div')
         nodeLabel.textContent = count + ' '
         node.appendChild(nodeLabel)
         /* [5] */
-        let nodeContent = document.createElement('code')
+        let nodeContent = document.createElement('div')
         nodeContent.textContent = Array.prototype.slice.call(arguments).join(' ')
         node.appendChild(nodeContent)
         /* [6] */
@@ -59,6 +68,12 @@ const setup = () => {
   // Load the app
   frame.appendChild(app.view)
   app.view.id = 'c'
+  app.view.addEventListener('mouseover', (event) => {
+    frame.style.background = '#000'
+  })
+  app.view.addEventListener('mouseleave', (event) => {
+    frame.style.background = 'none'
+  })
   // Load the menu
   const testStage = new StageLoader(TestStage1)
 }
@@ -74,6 +89,7 @@ if (document.readyState !== 'loading') {
   })
 }
 
+/** Display all errors in the in-page console. */
 window.onerror = (e, url, line) => {
   console.error(`${url}:${line} - ${e}`)
 }

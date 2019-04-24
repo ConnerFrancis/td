@@ -21,10 +21,8 @@
         /* Display */
         display: flex;
         justify-content: center;
-        /* Size */
-        padding-top: 16px;
         /* Colors */
-        background-color: #000a12;
+        background-color: #17111a;
       }
       #log {
         /* Display */
@@ -36,9 +34,15 @@
         bottom: 0;
         /* Font */
         font-size: 10px;
+        font-weight: bold;
         /* Colors */
         background: rgba(0,0,0,0.3);
-        text-shadow: 2px 2px #000;
+        border: 1px solid #000;
+        text-shadow: 
+         -1px -1px 0 #000,
+         -1px 1px 0 #000,
+         1px 1px 0 #000,
+          1px -1px 0 #000;
         opacity: 0.25;
         /* Size */
         padding: 2px;
@@ -50,48 +54,66 @@
       #log:hover {
         opacity: 1;
       }
-      #log span {
+      #log div {
+        /* Display */
+        display: flex;
+        flex-direction: row;
+        /* Size */
         padding: 2px;
+        /* Font */
+        font-family: monospace;
       }
-      #log span code:first-child {
+      #log div div:first-child {
         opacity: 0.5;
+        width: 4ch;
+        text-align: right;
       }
       #log .log {
         color: #ededed;
       }
-      #log .log code::selection {
+      #log .log div::selection {
         background: #ededed;
       }
       #log .info {
         color: #03a9f4;
       }
-      #log .info code::selection {
+      #log .info div::selection {
         background: #03a9f4;
       }
       #log .warn {
         color: #ffb300;
       }
-      #log .warn code::selection {
+      #log .warn div::selection {
         background: #ffb300;
       }
       #log .error {
         color: #e53935;
       }
-      #log .error code::selection {
+      #log .error div::selection {
         background: #e53935;
       }
       #log .debug {
         color: #4caf50;
       }
-      #log .debug code::selection {
+      #log .debug div::selection {
         background: #4caf50;
       }
-      #log span code::selection {
+      #log div div::selection {
         color: black;
         text-shadow: none;
       }
+      #frame {
+        /* Display */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* Size */
+        width: 100vw;
+        height: 100vh;
+        /* Misc */
+        transition: background 0.75s ease;
+      }
       #c {
-        border: 1px solid #78909c;
         box-shadow: 0 16px 32px rgb(0,0,0,0.85);
       }
     </style>

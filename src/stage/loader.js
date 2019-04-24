@@ -1,3 +1,4 @@
+import { app } from '@'
 import Batch from '@/util/batch'
 
 export default class StageLoader {
@@ -7,11 +8,15 @@ export default class StageLoader {
    */
   constructor (stage) {
     console.log('Stage loader for ' + stage.name + ' running...')
-    // Return a new instance of the stage in the callback.
+    // Run a resource batch...
     return new Batch(stage.$spriteClasses).run(batch => {
       console.log('Stage loader for ' + stage.name + ' finished.')
-      // For loading any other stages.
-      return new stage()
+      // Make a new instance...
+      let instance = new stage()
+      // Add it to the root stage...
+      app.stage.addChild(instance)
+      // Return the instance.
+      return instance
     })
   }
 }
